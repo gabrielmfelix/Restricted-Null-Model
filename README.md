@@ -6,11 +6,10 @@ Posterior.Prob computes pairwise probabilities of interaction among species. Thi
 ## Posterior.Prob
 Computing probability of interactions based on modular structure
 
+### Arguments
 M -> The interaction matrix for which posterior probability will be computed
 
-
 R.partition and C.partition -> rows and columns partitions 
-
 
 Prior.Pij -> Method to be used when computed the "a priori" probability of interaction among species i and j. Can be defined as: 
 
@@ -20,7 +19,6 @@ Prior.Pij -> Method to be used when computed the "a priori" probability of inter
 
 (iii) "degreeprob.byarea", probability of interaction proportional to species degrees in each matrix area
 
-
 Conditional.level -> The level to which conditional probability of interaction among species i and j will be conditionated. Can be defined as: 
 
 (i)   "matrix": conditional probabilities identical in all matrix areas
@@ -29,10 +27,11 @@ Conditional.level -> The level to which conditional probability of interaction a
 
 (iii) "areas": a different conditional probability in each matrix area
 
-
 ## RestNullModel
+
 Vaznull algorithm of bipartite modified to run the restricted null model
 
+### Arguments
 M: Matrix. A matrix. Interaction matrix to be randomized
 
 Pij.Prob: A matrix. Matrix of probabilities, with the same dimensions of M, computed by function "Posterior.Prob"
