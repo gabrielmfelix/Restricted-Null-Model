@@ -1,0 +1,2 @@
+The functions provided in this repository are the same used in Felix, G. M., Pinheiro, R. B. P., Poulin, R., Krasnov, B. R., & de Mello, M. A. R. (2017). The compound topology of a continent-wide interaction network explained by an integrative hypothesis of specialization. bioRxiv, 236687.
+These functions can be used to simulate random matrices which conserve both the modular structure and marginal totals of a given real interaction matrix. The restricted null model is particularly useful when testing the compound topology hypothesis   
