@@ -1,7 +1,8 @@
 # Restricted-Null-Model
-The functions provided in this repository are the same used in Felix et al (2017) DOI:https://doi.org/10.1101/236687
-These functions can be used to simulate random interaction matrices which conserve both the modular structure and the marginal totals of a given real interaction matrix. The restricted null model is particularly useful when testing the compound topology hypothesis.
-Posterior.Prob computes pairwise probabilities of interaction among species. This probabilities will be used for Rest_NUllModel when drawning interactions on the null matrices.
+Felix et al (2017) DOI:https://doi.org/10.1101/236687
+R code provided in this repository can be used to simulate null interaction matrices which conserve both the modular structure and the marginal totals of a given real interaction matrix -  the restricted null model (Felix et al 2017 DOI:https://doi.org/10.1101/236687; Pinheiro et al 2019 DOI:https://doi.org/10.1002/ecy.2796; and Mello et al 2019 DOI: https://doi.org/10.1038/s41559-019-1002-3). The restricted null model is particularly useful when testing the compound topology hypothesis. The restrict null model allows to comparing observed to expected values of nestedness among species of the same module (NODFsm), and nestedness among species of different modules (NODFdm). Functions to compute NODFsm and NODFdm are already implemented in the "bipartite" R package.
+
+"Posterior.Prob" computes pairwise probabilities of interaction among species. This pairwise probabilities will be used for Rest_NUllModel when drawning interactions on the null matrices.
 
 ## Posterior.Prob
 Computing probability of interactions based on modular structure
