@@ -1,6 +1,6 @@
 # Restricted-Null-Model
 
-Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com.
+[Ecological Synthesis Lab](https://marcomellolab.wordpress.com) (SintECO)
 
 Authors: Gabriel M. Felix, Rafael B. P. Pinheiro, and Marco A. R. Mello.
 
@@ -15,7 +15,7 @@ Disclaimer: You may use this script freely for commercial or non-commercial purp
 
 ## Functionality and origin
 
-R code provided in this repository can be used to simulate null interaction matrices which conserve both the modular structure and the marginal totals of a given  interaction matrix.
+R code provided in this repository can be used to simulate null interaction matrices that conserve both the modular structure and the marginal totals of a given  interaction matrix.
 
 This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), and [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x).
 
@@ -23,56 +23,63 @@ The restricted null model is particularly useful for testing for a compound topo
 
 Functions to compute NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html).
 
-"Posterior.Prob" computes pairwise probabilities of interaction among species. These pairwise probabilities will be used by Rest_NUllModel when drawning interactions on the null matrices.
+This code contains 2 functions to be used sequentually:
 
+## (1) PosteriorProb
 
-## Posterior.Prob
-
-Computing probabilities of interaction based on a modular structure.
-
-### Arguments
-M -> The interaction matrix for which posterior probability will be computed
-
-R.partition and C.partition -> rows and columns partitions 
-
-Prior.Pij -> Method to be used when computed the "a priori" probability of interaction among species i and j. Can be defined as: 
-
-1. "equiprobable", probability of interaction identical to all species  
-
-2. "degreeprob" probability of interaction proportional to overall species degrees
-
-3. "degreeprob.byarea", probability of interaction proportional to species degrees in each matrix area
-
-Conditional.level -> The level to which conditional probability of interaction among species i and j will be conditionated. Can be defined as: 
-
-1. "matrix": conditional probabilities identical in all matrix areas
-
-2. "modules": conditional probabilities differing between areas within and outside modules
-
-3. "areas": a different conditional probability in each matrix area
-
-
-## RestNullModel
-
-Restricted null model derived from the vaznull model.
+Computes pairwise probabilities of interaction among species for a matrix with a modular structure. 
 
 ### Arguments
-M: Matrix. A matrix. Interaction matrix to be randomized
 
-Pij.Prob: A matrix. Matrix of probabilities, with the same dimensions of M, computed by function "Posterior.Prob"
+1. M -> a matrix. The original matrix for which posterior probabilities will be calculated.
 
-Numbernulls: Interger. Number of null matrices to be produced
+2. R.partitions -> a vector of integers. It must containd info on row partitions.
 
-Print.null: Logical. If simulation progress should be printed. Default is FALSE
+3. C.partitions -> a vector of integers. It must containd info on column partitions.
 
-allow.degeneration: Logical. If null matrices are allowed to degenerate. Default is FALSE
+4. Prior.Pij -> method for computing "a priori" probabilities of interaction between species i and j. Can be defined as: 
 
-return.nonrm.species: Logical. If the index of non-removed rows and columns should be returned in the output. Default is T
+    a. "equiprobable": probability of interaction identical to all species.  
 
-connectance: Logical. If connectance of the null matrices should be either exactly (TRUE) or aproximately (FALSE) the same as the original matrix. Default is T
+    b. "degreeprob": probability of interaction proportional to overall species degrees.
 
-byarea: Logical. If interactions should be drawn independently in each matrix area. Default is F
+    c. "degreeprob.byarea": probability of interaction proportional to species degrees in each matrix area.
 
-R.partitions: Vector of Intergers. Partition of rows. Only applied if byarea = T
+5. Conditional.level -> level to which conditional probability of interaction among species i and j will be conditioned. Can be defined as: 
 
-C.partitions: Vector of Intergers. Partition of columns. Only applied if byarea = T
+    a. "matrix": conditional probabilities identical in all matrix areas.
+
+    b. "modules": conditional probabilities differing between areas within and outside modules.
+
+    c. "areas": a different conditional probability in each matrix area. 
+    
+<!-- Precisa explicar o que são essas "areas" mencionadas em 5.c --> 
+
+
+## (2) RestNullModel
+
+Restricted null model derived from the vaznull model. Uses the pairwise probabilities generated by PosteriorProb to draw interactions for the null matrices.
+
+### Arguments
+
+1. M: Matrix -> a matrix. The original matrix to be randomized.
+
+2. Pij.Prob -> a matrix. Matrix of probabilities with the same dimensions of M, computed by PosteriorProb.
+
+3. Numbernulls -> integer. Number of null matrices to be produced.
+
+4. Print.null -> logical. If simulation progress should be printed. Default is FALSE.
+
+5. allow.degeneration -> logical. If null matrices are allowed to degenerate. Default is FALSE.
+
+<!-- Precisa explicar o que significa "degenerate" neste contexto --> 
+
+6. return.nonrm.species -> logical. If the index of non-removed rows and columns should be returned in the output. Default is TRUE.
+
+7. connectance -> logical. If connectance of the null matrices should be either exactly (TRUE) or aproximately (FALSE) the same as the original matrix. Default is TRUE.
+
+8. byarea- > logical. If interactions should be drawn independently for each matrix area. Default is FALSE.
+
+9. R.partitions -> vector of integers. Partition of rows. Used only if byarea = TRUE.
+
+10. C.partitions -> vector of integers. Partition of columns. Used only if byarea = TRUE.

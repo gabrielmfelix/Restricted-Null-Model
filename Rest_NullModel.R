@@ -1,29 +1,13 @@
+#### Ecological Synthesis Lab (SintECO)
+
+#### Authors: Gabriel M. Felix, Rafael B. P. Pinheiro, and Marco A. R. Mello.
+
+#### See README for further info.
+
 #### Vaznull algorithm of bipartite modified to run the restricted null model
-#### Felix, G. M., Pinheiro, R. B. P., Poulin, R., Krasnov, B. R., & de Mello, M. A. R. (2017). The compound topology of a continent-wide interaction network explained by an integrative hypothesis of specialization. bioRxiv, 236687.
 
-### Arguments
 
-# M: Matrix. A matrix. Interaction matrix to be randomized
-
-# Pij.Prob: A matrix. Matrix of probabilities, with the same dimensions of M, computed by function "Posterior.Prob"
-
-# Numbernulls: Interger. Number of null matrices to be produced
-
-# Print.null: Logical. If simulation progress should be printed. Default is FALSE
-
-# allow.degeneration: Logical. If null matrices are allowed to degenerate. Default is FALSE
-
-# return.nonrm.species: Logical. If the index of non-removed rows and columns should be returned in the output. Default is T
-
-# connectance: Logical. If connectance of the null matrices should be either exactly (TRUE) or aproximately (FALSE) the same as the original matrix. Default is T
-
-# byarea: Logical. If interactions should be drawn independently in each matrix area. Default is F
-
-# R.partitions: Vector of Intergers. Partition of rows. Only applied if byarea = T
-
-# C.partitions: Vector of Intergers. Partition of columns. Only applied if byarea = T
-
-rest_null <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degeneration = F, 
+Rest_NullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degeneration = F, 
                               return.nonrm.species = T, connectance = T, byarea = F, R.partitions = NULL, C.partitions = NULL){
   
   ### Test of assumptions
