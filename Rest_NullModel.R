@@ -7,7 +7,7 @@
 #### Vaznull algorithm of bipartite modified to run the restricted null model
 
 
-Rest_NullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degeneration = F, 
+RestNullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degeneration = F, 
                               return.nonrm.species = T, connectance = T, byarea = F, R.partitions = NULL, C.partitions = NULL){
   
   ### Test of assumptions

@@ -15,7 +15,7 @@ Disclaimer: You may use this script freely for commercial or non-commercial purp
 
 ## Functionality and origin
 
-R code provided in this repository can be used to simulate null interaction matrices that conserve both the modular structure and the marginal totals of a given  interaction matrix.
+R code provided in this repository can be used to simulate null interaction matrices that conserve both the modular structure and the marginal totals of a given   matrix.
 
 This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), and [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x).
 
@@ -23,7 +23,7 @@ The restricted null model is particularly useful for testing for a compound topo
 
 Functions to compute NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html).
 
-This code contains 2 functions to be used sequentually:
+This code contains 2 functions to be used sequentially:
 
 ## (1) PosteriorProb
 
@@ -31,11 +31,11 @@ Computes pairwise probabilities of interaction among species for a matrix with a
 
 ### Arguments
 
-1. M -> a matrix. The original matrix for which posterior probabilities will be calculated.
+1. M -> matrix. The original matrix for which posterior probabilities will be calculated.
 
-2. R.partitions -> a vector of integers. It must containd info on row partitions.
+2. R.partitions -> vector of integers. It must containd info on row partitions.
 
-3. C.partitions -> a vector of integers. It must containd info on column partitions.
+3. C.partitions -> vector of integers. It must containd info on column partitions.
 
 4. Prior.Pij -> method for computing "a priori" probabilities of interaction between species i and j. Can be defined as: 
 
@@ -51,7 +51,7 @@ Computes pairwise probabilities of interaction among species for a matrix with a
 
     b. "modules": conditional probabilities differing between areas within and outside modules.
 
-    c. "areas": a different conditional probability in each matrix area. 
+    c. "areas": a different conditional probability in each matrix area (i.e., inside and outside the modules). 
     
 <!-- Precisa explicar o que são essas "areas" mencionadas em 5.c --> 
 
@@ -62,9 +62,9 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 
 ### Arguments
 
-1. M: Matrix -> a matrix. The original matrix to be randomized.
+1. M: Matrix -> matrix. The original matrix to be randomized.
 
-2. Pij.Prob -> a matrix. Matrix of probabilities with the same dimensions of M, computed by PosteriorProb.
+2. Pij.Prob -> matrix. Matrix of probabilities with the same dimensions of M, computed by PosteriorProb.
 
 3. Numbernulls -> integer. Number of null matrices to be produced.
 

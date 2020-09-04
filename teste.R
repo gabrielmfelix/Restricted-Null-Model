@@ -40,3 +40,12 @@ Pij.Prob.are <- PosteriorProb(matriz,
                                Prior.Pij = "degreeprob.byarea", #não está dando certo com esta opção. Cheque, por favor.
                                Conditional.level = "modules")
 Pij.Prob.are
+
+
+modelos <- RestNullModel(matriz, Pij.Prob.are, Numbernulls = 100, 
+                         Print.null = T, allow.degeneration = T,
+                         return.nonrm.species = T, connectance = T,
+                         byarea = F, R.partitions = F, C.partitions = F)
+
+
+
