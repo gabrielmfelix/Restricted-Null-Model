@@ -24,7 +24,7 @@ Rest_NullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degen
     if(is.null(C.partitions) | is.null(R.partitions)){stop("Partitions missing")}
     if (length(unique(c(length(R.partitions),nrow(M),nrow(Pij.Prob)))) != 1){stop("The number of elements of R.partition should be the same as the number of rows of M and Pij.prob")}
     if (length(unique(c(length(C.partitions),ncol(M),ncol(Pij.Prob)))) != 1){stop("The number of elements of C.partition should be the same as the number of column of M and Pij.prob")}
-    if(!identical(unique(R.partitions), unique(C.partitions))){stop("The number and labels of modules in R.partition and C.partition must be the same")}
+     if(!identical(sort(unique(R.partitions)), sort(unique(C.partitions)))){stop("The number and labels of modules in R.partition and C.partition must be the same")}
   }  
   
   if (Numbernulls <= 0 | !is.numeric(Numbernulls)) {stop("Numbernulls should be a number > 0")}
