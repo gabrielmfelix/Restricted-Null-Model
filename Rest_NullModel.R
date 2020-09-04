@@ -132,7 +132,7 @@ Rest_NullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degen
     C2keep <- which(colSums(finalmat) != 0)
     finalmat2 <- finalmat[R2keep,C2keep]
     if (return.nonrm.species == T){
-      NullMatrices[[nn]] = list(NullMatrix = finalmat2, RKeep = R2keep, CKeep = C2keep)
+      NullMatrices[[nn]] = list(NullMatrix = finalmat2, R.Kept = R2keep, C.Kept = C2keep)
     }else if(return.nonrm.species == F){
       NullMatrices[[nn]] = finalmat2
     }
