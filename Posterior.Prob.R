@@ -51,7 +51,7 @@ PosteriorProb <- function(M, R.partitions, C.partitions, Prior.Pij, Conditional.
     CMod <- sort(unique(C.partitions))
     for (rr in RMod){
       for (cc in CMod){
-        M.rr.cc <- M[R.partitions == rr,C.partitions == cc]
+        M.rr.cc <- matrix(M[R.partitions == rr,C.partitions == cc], sum(1*(R.partitions == rr)), sum(1*(C.partitions == cc)))
         Pi.rr.cc <- rowSums(M.rr.cc) / sum(rowSums(M.rr.cc)) 
         Pj.rr.cc <- colSums(M.rr.cc) / sum(colSums(M.rr.cc))
         Prior.Pij.species[R.partitions == rr, C.partitions == cc] <- tcrossprod(Pi.rr.cc, Pj.rr.cc)
