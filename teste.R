@@ -37,7 +37,7 @@ Pij.Prob.deg
 Pij.Prob.are <- PosteriorProb(matriz,
                                R.partition,
                                C.partition,
-                               Prior.Pij = "degreeprob.byarea", #não está dando certo com esta opção. Cheque, por favor.
+                               Prior.Pij = "degreeprob.byarea",
                                Conditional.level = "modules")
 Pij.Prob.are
 
