@@ -51,10 +51,8 @@ Computes pairwise probabilities of interaction among species for a matrix with a
 
     b. "modules": conditional probabilities differing between areas within and outside modules.
 
-    c. "areas": a different conditional probability in each matrix area (i.e., inside and outside the modules). 
+    c. "areas": a different conditional probability in each matrix area (i.e., in each submatrix M[ij] of M formed by all rows of module i and all columns of module j; if i = j, then M[ij] is a module area, otherwise M[ij] is an area of adjacency between two modules). Therefore, when Conditional.level =  "areas" each module and adjacency area has its own conditional probability of interaction.  
     
-<!-- Precisa explicar o que são essas "areas" mencionadas em 5.c --> 
-
 
 ## (2) RestNullModel
 
@@ -70,9 +68,7 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 
 4. Print.null -> logical. If simulation progress should be printed. Default is FALSE.
 
-5. allow.degeneration -> logical. If null matrices are allowed to degenerate. Default is FALSE.
-
-<!-- Precisa explicar o que significa "degenerate" neste contexto --> 
+5. allow.degeneration -> logical. If null matrices are allowed to degenerate. Default is FALSE. If TRUE interactions are drawn without assure that all rowns and columns must have at least one interaction each.
 
 6. return.nonrm.species -> logical. If the index of non-removed rows and columns should be returned in the output. Default is TRUE.
 
