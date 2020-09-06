@@ -43,7 +43,7 @@ Computes pairwise probabilities of interaction among species for a matrix with a
 
     b. "degreeprob": probability of interaction proportional to overall species degrees.
 
-    c. "degreeprob.byarea": probability of interaction proportional to species degrees in each matrix area.
+    c. "degreeprob.byarea": probability of interaction proportional to species degrees in each matrix area - see "areas" in "Conditional.level" for a definition of matrix areas.
 
 5. Conditional.level -> level to which conditional probability of interaction among species i and j will be conditioned. Can be defined as: 
 
