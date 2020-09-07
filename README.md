@@ -79,3 +79,7 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 9. R.partitions -> vector of integers. Partition of rows. Used only if byarea = TRUE.
 
 10. C.partitions -> vector of integers. Partition of columns. Used only if byarea = TRUE.
+
+## Nestedness significance 
+
+NODAsm_NODAdm_significance script explains how to use the restricted null model to test the significance of nestedness at different network scales. This script uses the Net1 file as input
