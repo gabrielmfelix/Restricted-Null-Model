@@ -8,7 +8,7 @@
 ##### https://marcomellolab.wordpress.com
 ##### Authors: Gabriel Félix, Rafael Pinheiro & Marco Mello
 ##### E-mail: gabrielfelixmf@gmail.com
-##### How to cite: Muylaert RL, Dodonov P & Marco Mello. 2016. How to estimate P-values of nestedness at different matrix scales by using the restricted null model plus Monte Carlo procedures. Ecological Synthesis Lab at the University of São Paulo, Brazil.
+##### How to cite: Gabriel Félix, Rafael Pinheiro & Marco Mello. 2020. How to estimate P-values of nestedness at different matrix scales by using the restricted null model plus Monte Carlo procedures. Ecological Synthesis Lab at the University of São Paulo, Brazil.
 ##### Published on September 07th, 2020 (English version).
 ##### Run in R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 
