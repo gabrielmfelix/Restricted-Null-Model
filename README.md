@@ -30,9 +30,11 @@ This is the **restricted null model** used in [Felix et al 2017](https://doi.org
 
 The restricted null model is particularly useful for testing for a compound topology, i.e., a modular structure with internally nested modules. Our model allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
 
-Functions to compute NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html), as well as functions for drawing matrices with a compound topology.
+Functions for computing NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html), as well as functions for drawing matrices with a compound topology.
 
-The present code contains 2 functions to be used sequentially:
+In this repo, we integrated all those functions aiming to make the analysis of compound topologies easier.
+
+In addition to functions already implemented in the package bipartite, the present code contains 3 new functions to be used sequentially:
 
 ## (1) PosteriorProb
 
@@ -89,6 +91,6 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 10. C.partitions -> vector of integers. Partition of columns. Used only if byarea = TRUE.
 
 
-## (3) Nestedness significance 
+## (3) NODAsm_NODAdm_significance 
 
-NODAsm_NODAdm_significance script explains how to use the restricted null model to test the significance of nestedness at different network scales. This script uses the Net1 file as input
+This script explains how to use the restricted null model to test for the significance of nestedness at different network scales. The Net1.txt file represents a network with a compound topology, which will be used as an example.
