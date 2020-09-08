@@ -5,7 +5,7 @@ cat("\014")
 library(bipartite)
 source("RestNullModel.R")
 source("PosteriorProb.R")
-source("modules_from_bipartite.R")
+source("ModulesFromBipartite.R")
 
 
 ##### Teste com net1 #####

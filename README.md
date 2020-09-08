@@ -13,6 +13,15 @@ Run in R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 Disclaimer: You may use this script freely for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this software, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the software without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this script helps you produce any academic work (paper, book, chapter, dissertation etc.), please acknowledge the authors and cite the source.
 
 
+## List of files (see further info in the respective sections)
+
+1. PosteriorProb.R -> script for calculating interaction probabilities.
+2. RestNullModel.R -> script for generating randomized matrices based on the restricted null model. 
+3. ModulesFromBipartite.R -> script for extracting module composition from the output of the function computeModules from the package bipartite.
+4. NODAsm_NODAdm_significance.R -> script for estimating the significance of nestedness within and between modules.
+5. net1.txt -> example network with a compound topology.
+
+
 ## Functionality and origin
 
 R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an orihinal matrix.

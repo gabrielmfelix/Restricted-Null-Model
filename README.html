@@ -373,6 +373,16 @@ summary {
 <p>Published on September 3rd, 2020 (English version).</p>
 <p>Run in R version 4.0.2 (2020-06-22) – “Taking Off Again”</p>
 <p>Disclaimer: You may use this script freely for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this software, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the software without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this script helps you produce any academic work (paper, book, chapter, dissertation etc.), please acknowledge the authors and cite the source.</p>
+<div id="list-of-files-see-further-info-in-the-respective-sections" class="section level2">
+<h2>List of files (see further info in the respective sections)</h2>
+<ol style="list-style-type: decimal">
+<li>PosteriorProb.R -&gt; script for calculating interaction probabilities.</li>
+<li>RestNullModel.R -&gt; script for generating randomized matrices based on the restricted null model.</li>
+<li>ModulesFromBipartite.R -&gt; script for extracting module composition from the output of computeModules from the package bipartite.</li>
+<li>NODAsm_NODAdm_significance.R -&gt; script for estimating the significance of nestedness within and between modules.</li>
+<li>net1.txt -&gt; example network with a compound topology.</li>
+</ol>
+</div>
 <div id="functionality-and-origin" class="section level2">
 <h2>Functionality and origin</h2>
 <p>R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an orihinal matrix.</p>
@@ -400,10 +410,9 @@ summary {
 <ol style="list-style-type: lower-alpha">
 <li><p>“matrix”: conditional probabilities identical in all matrix areas.</p></li>
 <li><p>“modules”: conditional probabilities differing between areas within and outside modules.</p></li>
-<li><p>“areas”: a different set of conditional probabilities for each matrix area. In each submatrix M[ij] of M formed by the rows (i) and columns (j) that belong to a given module, if i = j, then M[ij] is a module area, otherwise M[ij] is an area between two modules. Therefore, when Conditional.level = “areas”, each module and area inbetween have their own conditional probabilities of interaction.</p></li>
+<li><p>“areas”: a different set of conditional probabilities for each matrix area. A matrix area is a submatrix M[AB] of M formed by all rows of module A and all columns of module B. If A = B, then M[AB] is a module area, otherwise M[AB] is the area between two modules. Therefore, when Conditional.level = “areas”, each area have their own conditional probabilities of interaction.</p></li>
 </ol></li>
 </ol>
-<!-- Esta explicação sobre as "areas"" ainda está confusa. Não use notações e termos que já têm outros sentidos próprios, como i e j ou "adjacency".  -->
 </div>
 </div>
 <div id="restnullmodel" class="section level2">
@@ -426,7 +435,7 @@ summary {
 </div>
 </div>
 <div id="nestedness-significance" class="section level2">
-<h2>Nestedness significance</h2>
+<h2>(3) Nestedness significance</h2>
 <p>NODAsm_NODAdm_significance script explains how to use the restricted null model to test the significance of nestedness at different network scales. This script uses the Net1 file as input</p>
 </div>
 </div>
