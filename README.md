@@ -15,15 +15,15 @@ Disclaimer: You may use this script freely for commercial or non-commercial purp
 
 ## Functionality and origin
 
-R code provided in this repository can be used to simulate null interaction matrices that conserve both the modular structure and the marginal totals of a given   matrix.
+R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an orihinal matrix.
 
 This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), and [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x).
 
 The restricted null model is particularly useful for testing for a compound topology, i.e., a modular structure with internally nested modules. Our model allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
 
-Functions to compute NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html).
+Functions to compute NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html), as well as functions for drawing matrices with a compound topology.
 
-This code contains 2 functions to be used sequentially:
+The present code contains 2 functions to be used sequentially:
 
 ## (1) PosteriorProb
 
@@ -51,8 +51,10 @@ Computes pairwise probabilities of interaction among species for a matrix with a
 
     b. "modules": conditional probabilities differing between areas within and outside modules.
 
-    c. "areas": a different conditional probability in each matrix area (i.e., in each submatrix M[ij] of M formed by all rows of module i and all columns of module j; if i = j, then M[ij] is a module area, otherwise M[ij] is an area of adjacency between two modules). Therefore, when Conditional.level =  "areas" each module and adjacency area has its own conditional probability of interaction.  
-    
+    c. "areas": a different set of conditional probabilities for each matrix area. In each submatrix M[ij] of M formed by the rows (i) and columns (j) that belong to a given module, if i = j, then M[ij] is a module area, otherwise M[ij] is the area between two modules. Therefore, when Conditional.level =  "areas", each module and area inbetween have their own conditional probabilities of interaction.  
+
+<!-- Esta explicação sobre as "areas"" ainda está confusa, especialmente no caso dessa condição "if i = j". Não use notações e termos que já têm outros sentidos próprios, como i e j ou "adjacency".  -->    
+
 
 ## (2) RestNullModel
 
@@ -80,6 +82,7 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 
 10. C.partitions -> vector of integers. Partition of columns. Used only if byarea = TRUE.
 
-## Nestedness significance 
+
+## (3) Nestedness significance 
 
 NODAsm_NODAdm_significance script explains how to use the restricted null model to test the significance of nestedness at different network scales. This script uses the Net1 file as input

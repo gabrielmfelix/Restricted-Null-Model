@@ -375,11 +375,11 @@ summary {
 <p>Disclaimer: You may use this script freely for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this software, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the software without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this script helps you produce any academic work (paper, book, chapter, dissertation etc.), please acknowledge the authors and cite the source.</p>
 <div id="functionality-and-origin" class="section level2">
 <h2>Functionality and origin</h2>
-<p>R code provided in this repository can be used to simulate null interaction matrices that conserve both the modular structure and the marginal totals of a given interaction matrix.</p>
+<p>R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an orihinal matrix.</p>
 <p>This is the <strong>restricted null model</strong> used in <a href="https://doi.org/10.1101/236687">Felix et al 2017</a>, <a href="https://doi.org/10.1002/ecy.2796">Pinheiro et al 2019</a>, and <a href="https://doi.org/10.1038/s41559-019-1002-3">Mello et al 2019</a>. It was derived from the <a href="https://doi.org/10.1111/j.0030-1299.2007.15828.x">vaznull model</a>.</p>
 <p>The restricted null model is particularly useful for testing for a compound topology, i.e., a modular structure with internally nested modules. Our model allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm).</p>
-<p>Functions to compute NODFsm and NODFdm have already been implemented in the <a href="https://cran.r-project.org/web/packages/bipartite/index.html">bipartite package for R</a>.</p>
-<p>This code contains 2 functions to be used sequentually:</p>
+<p>Functions to compute NODFsm and NODFdm have already been implemented in the <a href="https://cran.r-project.org/web/packages/bipartite/index.html">bipartite package for R</a>, as well as functions for drawing matrices with a compound topology.</p>
+<p>The present code contains 2 functions to be used sequentially:</p>
 </div>
 <div id="posteriorprob" class="section level2">
 <h2>(1) PosteriorProb</h2>
@@ -387,23 +387,23 @@ summary {
 <div id="arguments" class="section level3">
 <h3>Arguments</h3>
 <ol style="list-style-type: decimal">
-<li><p>M -&gt; a matrix. Posterior probabilities will be calculated for it.</p></li>
-<li><p>R.partitions -&gt; a vector of integers. It must containd info on row partitions.</p></li>
-<li><p>C.partitions -&gt; a vector of integers. It must containd info on column partitions.</p></li>
+<li><p>M -&gt; matrix. The original matrix for which posterior probabilities will be calculated.</p></li>
+<li><p>R.partitions -&gt; vector of integers. It must containd info on row partitions.</p></li>
+<li><p>C.partitions -&gt; vector of integers. It must containd info on column partitions.</p></li>
 <li><p>Prior.Pij -&gt; method for computing “a priori” probabilities of interaction between species i and j. Can be defined as:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>“equiprobable”: probability of interaction identical to all species.</p></li>
 <li><p>“degreeprob”: probability of interaction proportional to overall species degrees.</p></li>
-<li><p>“degreeprob.byarea”: probability of interaction proportional to species degrees in each matrix area.</p></li>
+<li><p>“degreeprob.byarea”: probability of interaction proportional to species degrees in each matrix area - see “areas” in “Conditional.level” for a definition of matrix areas.</p></li>
 </ol></li>
 <li><p>Conditional.level -&gt; level to which conditional probability of interaction among species i and j will be conditioned. Can be defined as:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>“matrix”: conditional probabilities identical in all matrix areas.</p></li>
 <li><p>“modules”: conditional probabilities differing between areas within and outside modules.</p></li>
-<li><p>“areas”: a different conditional probability in each matrix area.</p></li>
+<li><p>“areas”: a different set of conditional probabilities for each matrix area. In each submatrix M[ij] of M formed by the rows (i) and columns (j) that belong to a given module, if i = j, then M[ij] is a module area, otherwise M[ij] is an area between two modules. Therefore, when Conditional.level = “areas”, each module and area inbetween have their own conditional probabilities of interaction.</p></li>
 </ol></li>
 </ol>
-<!-- Precisa explicar o que são essas "areas" mencionadas em 5.c -->
+<!-- Esta explicação sobre as "areas"" ainda está confusa. Não use notações e termos que já têm outros sentidos próprios, como i e j ou "adjacency".  -->
 </div>
 </div>
 <div id="restnullmodel" class="section level2">
@@ -412,21 +412,22 @@ summary {
 <div id="arguments-1" class="section level3">
 <h3>Arguments</h3>
 <ol style="list-style-type: decimal">
-<li><p>M: Matrix -&gt; a matrix. The matrix to be randomized.</p></li>
-<li><p>Pij.Prob -&gt; a matrix. Matrix of probabilities with the same dimensions of M, computed by PosteriorProb.</p></li>
+<li><p>M: Matrix -&gt; matrix. The original matrix to be randomized.</p></li>
+<li><p>Pij.Prob -&gt; matrix. Matrix of probabilities with the same dimensions of M, computed by PosteriorProb.</p></li>
 <li><p>Numbernulls -&gt; integer. Number of null matrices to be produced.</p></li>
 <li><p>Print.null -&gt; logical. If simulation progress should be printed. Default is FALSE.</p></li>
-<li><p>allow.degeneration -&gt; logical. If null matrices are allowed to degenerate. Default is FALSE.</p></li>
-</ol>
-<!-- Precisa explicar o que significa "degenerate" neste contexto -->
-<ol start="6" style="list-style-type: decimal">
+<li><p>allow.degeneration -&gt; logical. If null matrices are allowed to degenerate. Default is FALSE. If TRUE interactions are drawn without assure that all rowns and columns must have at least one interaction each.</p></li>
 <li><p>return.nonrm.species -&gt; logical. If the index of non-removed rows and columns should be returned in the output. Default is TRUE.</p></li>
 <li><p>connectance -&gt; logical. If connectance of the null matrices should be either exactly (TRUE) or aproximately (FALSE) the same as the original matrix. Default is TRUE.</p></li>
-<li><p>byarea- &gt; logical. If interactions should be drawn independently for each matrix area. Default is FALSE.</p></li>
+<li><p>byarea- &gt; logical. If interactions should be drawn independently for each matrix area (i.e., in each submatrix M[ij] of M formed by all rows of module i and all columns of module j). Default is FALSE</p></li>
 <li><p>R.partitions -&gt; vector of integers. Partition of rows. Used only if byarea = TRUE.</p></li>
 <li><p>C.partitions -&gt; vector of integers. Partition of columns. Used only if byarea = TRUE.</p></li>
 </ol>
 </div>
+</div>
+<div id="nestedness-significance" class="section level2">
+<h2>Nestedness significance</h2>
+<p>NODAsm_NODAdm_significance script explains how to use the restricted null model to test the significance of nestedness at different network scales. This script uses the Net1 file as input</p>
 </div>
 </div>
 
