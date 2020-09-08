@@ -51,10 +51,7 @@ Computes pairwise probabilities of interaction among species for a matrix with a
 
     b. "modules": conditional probabilities differing between areas within and outside modules.
 
-    c. "areas": a different set of conditional probabilities for each matrix area. In each submatrix M[ij] of M formed by the rows (i) and columns (j) that belong to a given module, if i = j, then M[ij] is a module area, otherwise M[ij] is the area between two modules. Therefore, when Conditional.level =  "areas", each module and area inbetween have their own conditional probabilities of interaction.  
-
-<!-- Esta explicação sobre as "areas"" ainda está confusa, especialmente no caso dessa condição "if i = j". Não use notações e termos que já têm outros sentidos próprios, como i e j ou "adjacency".  -->    
-
+    c. "areas": a different set of conditional probabilities for each matrix area. A matrix area is a submatrix M[AB] of M formed by all rows of module A and all columns of module B. If A = B, then M[AB] is a module area, otherwise M[AB] is the area between two modules. Therefore, when Conditional.level =  "areas", each area have their own conditional probabilities of interaction.  
 
 ## (2) RestNullModel
 
