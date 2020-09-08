@@ -15,7 +15,7 @@ net1
 class(net1)
 visweb(net1)
 
-net1.lpa = computeModules(net1b, method = "Beckett")
+net1.lpa = computeModules(net1, method = "Beckett")
 net1.lpa
 printoutModuleInformation(net1.lpa)
 modulos.lpa.lista = listModuleInformation(net1.lpa)
@@ -66,8 +66,8 @@ randomized <- RestNullModel(net1, probabilities, Numbernulls = 1000,
                          return.nonrm.species = T, connectance = T,
                          byarea = F, R.partitions = F, C.partitions = F)
 
-randomized
-
+class(randomized)
+head(randomized)
 
 
 
