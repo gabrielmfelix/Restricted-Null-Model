@@ -18,9 +18,9 @@ Disclaimer: You may use this script freely for commercial or non-commercial purp
 1. PosteriorProb.R -> script for calculating interaction probabilities.
 2. RestNullModel.R -> script for generating randomized matrices based on the restricted null model. 
 3. ModulesFromBipartite.R -> script for extracting module composition from the output of the function computeModules from the package bipartite.
-4. NODAsm_NODAdm_significance.R -> script for estimating the significance of nestedness within and between modules.
+4. CompoundTopologyTest.R -> Script with the steps needed to test the compound topology hypothesis in a given interaction matrix
 5. net1.txt -> example network with a compound topology.
-
+6. Test.R -> Script with codes to test both the PosteriorProb.R and RestNullModel.R functions
 
 ## Functionality and origin
 
