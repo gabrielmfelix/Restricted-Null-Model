@@ -1,5 +1,5 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
+rm(list= ls())
 cat("\014") 
 
 library(bipartite)
@@ -15,10 +15,10 @@ net1
 class(net1)
 visweb(net1)
 
-net1.lpa = computeModules(net1, method = "Beckett")
-net1.lpa
-printoutModuleInformation(net1.lpa)
-modulos.lpa.lista = listModuleInformation(net1.lpa)
+net1.mod = computeModules(net1, method = "Beckett")
+net1.mod@likelihood
+printoutModuleInformation(net1.mod)
+modulos.lpa.lista = listModuleInformation(net1.mod)
 modules.lpa.dataframe = modules_from_bipartite(modulos.lpa.lista)
 colnames(modules.lpa.dataframe$Rows_modules)=c("nodes", "modules")
 colnames(modules.lpa.dataframe$Cols_modules)=c("nodes", "modules")
@@ -61,7 +61,7 @@ probabilities <- PosteriorProb(net1,
 probabilities
 
 
-randomized <- RestNullModel(net1, probabilities, Numbernulls = 1000, 
+randomized <- RestNullModel(net1, probabilities, Numbernulls = 9, 
                          Print.null = T, allow.degeneration = T,
                          return.nonrm.species = T, connectance = T,
                          byarea = F, R.partitions = F, C.partitions = F)
@@ -70,6 +70,25 @@ class(randomized)
 head(randomized)
 
 
+nestedness.randomized <- sapply(randomized,
+                                nest.smdm)
+
+nulls <- nullmodel(data, N=9, method="r2d")
+mod.nulls <- sapply(nulls, computeModules)
+like.nulls <- sapply(mod.nulls, function(x) x@likelihood)
+(z <- (mod@likelihood - mean(like.nulls))/sd(like.nulls))
+
+#Plot the observed value against the distribution of randomized values
+plot(density(like.nulls), xlim=c(min((mod@likelihood), min(like.nulls)), max((mod@likelihood), max(like.nulls))), 
+     main="Observed vs. randomized")
+abline(v=(mod@likelihood), col="red", lwd=2)    
+
+#Estimate the P-value
+mean(like.nulls)
+sd(like.nulls)
+mod@likelihood
+praw <- sum(like.nulls>(mod@likelihood)) / length(like.nulls)
+ifelse(praw > 0.5, 1-praw, praw)
 
 
 
