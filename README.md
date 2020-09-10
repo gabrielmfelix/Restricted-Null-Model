@@ -17,24 +17,22 @@ Disclaimer: You may use this script freely for commercial or non-commercial purp
 
 1. PosteriorProb.R -> script for calculating interaction probabilities.
 2. RestNullModel.R -> script for generating randomized matrices based on the restricted null model. 
-3. ModulesFromBipartite.R -> script for extracting module composition from the output of the function computeModules from the package bipartite.
-4. CompoundTopologyTest.R -> Script with the steps needed to test the compound topology hypothesis in a given interaction matrix
-5. net1.txt -> example network with a compound topology.
-6. Test.R -> Script with codes to test both the PosteriorProb.R and RestNullModel.R functions
+3. CompoundTopologyTest.R -> Script with the steps required to test for a compound topology in an interaction matrix.
+4. net1.txt -> example network with a typical compound topology.
 
 ## Functionality and origin
 
 R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an orihinal matrix.
 
-This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), and [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x).
+This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), [Pinheiro 2019](http://hdl.handle.net/1843/33333), and [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, reportes in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), and [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135).
 
-The restricted null model is particularly useful for testing for a compound topology, i.e., a modular structure with internally nested modules. Our model allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
+Our restricted null model is particularly useful for testing for a compound topology, i.e., a modular structure with internally nested modules. It allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
 
-Functions for computing NODFsm and NODFdm have already been implemented in the [bipartite package for R](https://cran.r-project.org/web/packages/bipartite/index.html), as well as functions for drawing matrices with a compound topology.
+The function *nest.smdm* for computing NODFsm and NODFdm has already been implemented in the [package bipartite for R](https://cran.r-project.org/web/packages/bipartite/index.html), as well as the functions *sortmatrix* and *plotmatrix* for drawing matrices in a way that helps visualizing a compound topology.
 
 In this repo, we integrated all those functions aiming to make the analysis of compound topologies easier.
 
-In addition to functions already implemented in the package bipartite, the present code contains 3 new functions to be used sequentially:
+In addition to the functions already implemented in the package bipartite for R, the present code contains 3 new functions to be used sequentially:
 
 ## (1) PosteriorProb
 
@@ -91,6 +89,34 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 10. C.partitions -> vector of integers. Partition of columns. Used only if byarea = TRUE.
 
 
-## (3) NODAsm_NODAdm_significance 
+## (3) CompoundTopologyTest 
 
-This script explains how to use the restricted null model to test for the significance of nestedness at different network scales. The Net1.txt file represents a network with a compound topology, which will be used as an example.
+This function can be used to test for a compound topology in an interaction network. 
+
+It integrates the other two new functions presented here and some functions that have already implemented in the package bipartite for R.
+
+The net1.txt file contains a network with a compound topology, which can be used in a test drive.
+
+Follow the instructions given in the script to run the compound topology test.
+
+
+## Source studies
+
+If you want to understand the background of those new analyses before using them, read the following studies. The first three paved the ground for the analysis of compound topologies developed later by our lab.
+
+1. Lewinsohn, T. M., P. Inácio Prado, P. Jordano, J. Bascompte, and J. M. Olesen. 2006. Structure in plant-animal interaction assemblages. Oikos 113: 174–184. Available at: http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x.
+
+2. Bezerra, E. L. S., I. C. Machado, and M. A. R. Mello. 2009. Pollination networks of oil-flowers: a tiny world within the smallest of all worlds. J. Anim. Ecol. 78: 1096–1101. Available at: http://www.ncbi.nlm.nih.gov/pubmed/19515098.
+
+3. Flores, C. O., S. Valverde, and J. S. Weitz. 2013. Multi-scale structure and geographic drivers of cross-infection within marine bacteria and phages. ISME J. 7: 520–532. Available at: http://www.nature.com/doifinder/10.1038/ismej.2012.135.
+
+4. Pinheiro, R. B. P., G. M. F. Félix, A. V Chaves, G. A. Lacorte, F. R. Santos, É. M. Braga, and M. A. R. Mello. 2016. Trade-offs and resource breadth processes as drivers of performance and specificity in a host–parasite system: a new integrative hypothesis. Int. J. Parasitol. 46: 115–121. Available at: http://www.sciencedirect.com/science/article/pii/S0020751915002933.
+
+5. Felix, G. M., R. B. P. Pinheiro, R. Poulin, B. R. Krasnov, and M. A. R. Mello. 2017. The compound topology of a continent-wide interaction network explained by an integrative hypothesis of specialization. bioRxiv 236687. Available at: https://doi.org/10.1101/236687.
+
+6. Pinheiro, R. B. P. 2019. As topologias de redes de interações ecológicas e suas origens. PhD Thesis, Federal Univesity of Minas Gerais. URL: http://hdl.handle.net/1843/33333. 
+
+7. Pinheiro, R. B. P., G. M. F. Felix, C. F. Dormann, and M. A. R. Mello. 2019. A new model explaining the origin of different topologies in interaction networks. Ecology 100: e02796. Available at: https://doi.org/10.1002/ecy.2796.
+
+8. Mello, M. A. R., G. M. Felix, R. B. P. Pinheiro, R. L. Muylaert, C. Geiselman, S. E. Santana, M. Tschapka, N. Lotfi, F. A. Rodrigues, and R. D. Stevens. 2019. Insights into the assembly rules of a continent-wide multilayer network. Nat. Ecol. Evol. 3: 1525–1532. Available at: https://doi.org/10.1038/s41559-019-1002-3.
+
