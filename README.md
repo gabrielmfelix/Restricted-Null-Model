@@ -101,6 +101,9 @@ The net1.txt file contains a network with a compound topology, which can be used
 
 Follow the instructions given in the script to run the compound topology test.
 
+## Acknowledgements
+
+We thank all colleagues who, together with us, wrote the papers used to lay the ground for this synthesis. Special thanks go to Renata Muylaert, Pavel Dodonov, Alexandre Palaoro, Danilo Muniz, and the StackOverflow community, who helped us improve our scripts and coding skills in general. Last, but no least, we thank Carsten Dormann for incorporating many of our codes into the package bipartite for R.
 
 ## Source studies
 
