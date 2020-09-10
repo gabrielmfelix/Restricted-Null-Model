@@ -13,7 +13,9 @@ Run in R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 Disclaimer: You may use this script freely for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this software, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the software without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this script helps you produce any academic work (paper, book, chapter, dissertation etc.), please acknowledge the authors and cite the source.
 
 
-## List of files (see further info in the respective sections)
+## List of files
+
+See further info in the respective sections.
 
 1. PosteriorProb.R -> script for calculating interaction probabilities.
 2. RestNullModel.R -> script for generating randomized matrices based on the restricted null model. 
@@ -102,7 +104,7 @@ Follow the instructions given in the script to run the compound topology test.
 
 ## Source studies
 
-If you want to understand the background of those new analyses before using them, read the following studies. The first three paved the ground for the analysis of compound topologies developed later by our lab.
+If you want to understand the background of those new functions before using them, read the following studies. The first three paved the ground for the analysis of compound topologies developed later by our lab.
 
 1. Lewinsohn, T. M., P. Inácio Prado, P. Jordano, J. Bascompte, and J. M. Olesen. 2006. Structure in plant-animal interaction assemblages. Oikos 113: 174–184. Available at: http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x.
 
