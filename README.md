@@ -34,7 +34,7 @@ The function *nest.smdm* for computing NODFsm and NODFdm has already been implem
 
 In this repo, we integrated all those functions aiming to make the analysis of compound topologies easier.
 
-In addition to the functions already implemented in the package bipartite for R, the present code contains 3 new functions to be used sequentially:
+In addition to the functions already implemented in the package bipartite for R, the present repo contains 3 new functions to be used sequentially:
 
 ## (1) PosteriorProb
 
