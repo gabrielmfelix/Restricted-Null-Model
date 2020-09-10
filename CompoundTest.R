@@ -1,10 +1,14 @@
-#### Ecological Synthesis Lab (SintECO)
+#### Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com
 
 #### Authors: Gabriel M. Felix, Rafael B. P. Pinheiro, and Marco A. R. Mello.
 
-#### See README for further info.
+#### See README for further info: https://github.com/gabrielmfelix/Restricted-Null-Model/blob/master/README.md
 
 #### How to test for a compound topology using the restricted null model
+
+#### Follow the instructions in the sequence and will be able to run a compound topology test.
+
+#### You can also replace the example network with your own network and test it. Just remember to keep the names consistent.
 
 
 ############### SUMMARY ##### 
@@ -72,10 +76,10 @@ mod.nulls <- sapply(nulls, computeModules)
 like.nulls <- sapply(mod.nulls, function(x) x@likelihood)
 
 #Calculate the z-score of the randomized distribution
-(z <- (data.mod@likelihood - mean(like.nulls))/sd(like.nulls))
+(z <- (Mod@likelihood - mean(like.nulls))/sd(like.nulls))
 
 #Plot the observed modularity value against the distribution of randomized values
-plot(density(like.nulls), xlim=c(min((data.mod@likelihood), min(like.nulls)), max((data.mod@likelihood), max(like.nulls))), 
+plot(density(like.nulls), xlim=c(min((Mod@likelihood), min(like.nulls)), max((Mod@likelihood), max(like.nulls))), 
      main="Observed vs. randomized")
 abline(v=(Mod@likelihood), col="red", lwd=2)    
 

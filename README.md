@@ -34,7 +34,7 @@ The function *nest.smdm* for computing NODFsm and NODFdm has already been implem
 
 In this repo, we integrated all those functions aiming to make the analysis of compound topologies easier.
 
-In addition to the functions already implemented in the package bipartite for R, the present repo contains 3 new functions to be used sequentially:
+In addition to the functions already implemented in the package bipartite for R, the present repo contains 2 new functions and 1 integrative script to be used sequentially:
 
 ## (1) PosteriorProb
 
@@ -91,15 +91,19 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 10. C.partitions -> vector of integers. Partition of columns. Used only if byarea = TRUE.
 
 
-## (3) CompoundTopologyTest 
+## (3) CompoundTest 
 
-This function can be used to test for a compound topology in an interaction network. 
+This script, provided in 2 formats, can be used to test for a compound topology in an interaction network. 
 
-It integrates the other two new functions presented here and some functions that have already implemented in the package bipartite for R.
+If you are fully confortable using R, run the original script in R format.
 
-The net1.txt file contains a network with a compound topology, which can be used in a test drive.
+If you would prefer a more didatic example, run the script in RMD format.
 
-Follow the instructions given in the script to run the compound topology test.
+It integrates the two new functions presented here and other functions that have already been implemented in the package bipartite for R.
+
+The net1.txt file contains an example network with a compound topology, which can be used in a test drive. If you want to test your own network, replace this file with another one formatted in the same way. And don't forget to keep object names consistent.
+
+Follow the instructions given in the script to run a compound topology test.
 
 ## Acknowledgements
 
