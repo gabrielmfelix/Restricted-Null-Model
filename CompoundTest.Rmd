@@ -90,7 +90,7 @@ visweb(data)
 
 Compute modularity:
 
-```{r}
+```{r, cache=FALSE}
 Mod <- bipartite::computeModules(data)
 
 ```
@@ -115,7 +115,7 @@ nulls <- nullmodel(data, N=9, method="r2d")
 
 Calculate the modularity of the randomized matrices:
 
-```{r}
+```{r, cache=FALSE}
 mod.nulls <- sapply(nulls, computeModules)
 like.nulls <- sapply(mod.nulls, function(x) x@likelihood)
 ```
@@ -196,7 +196,7 @@ nulls <- RestNullModel(M = data,
 
 Calculate the same nestedness metric for all randomized networks:
 
-```{r}
+```{r, cache=FALSE}
 null <- sapply(nulls, function(x) bipartite::nest.smdm(x = x, constraints = Part, weighted = T, decreasing = "abund"))
 WNODA.null <- unlist(null[3,])
 WNODAsm.null <- unlist(null[8,])
