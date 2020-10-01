@@ -118,9 +118,13 @@ RestNullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degene
           
           ### Checking if there are still interactions to be drawn. If applicable, draw.
           int.remain <- (sum(M.a) - sum(finalmat.a))
-          if (int.remain > 0) { 
-            add <- sample(which(finalmat.a > 0), int.remain, prob = P1.a[which(finalmat.a >0)], replace = T)
-            finalmat.a[as.numeric(names(table(add)))] <- finalmat.a[as.numeric(names(table(add)))] + (table(add))
+          if (int.remain > 0) {
+            if (length(which(finalmat.a > 0)) == 1) {
+              add <- rep(which(finalmat.a > 0),int.remain)
+            }else{
+              add <- sample(which(finalmat.a > 0), int.remain, prob = P1.a[which(finalmat.a >0)], replace = T)
+            }
+            finalmat.a[as.numeric(names(table(add)))] <- finalmat.a[as.numeric(names(table(add)))] + (table(add)) 
           }
       
         finalmat[R.partitions == R.p, C.partitions == C.p] <- finalmat.a
