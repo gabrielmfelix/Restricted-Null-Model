@@ -6,7 +6,7 @@ Authors: Gabriel M. Felix, Rafael B. P. Pinheiro, and Marco A. R. Mello.
 
 E-mail: gabriel.felixf@hotmail.com.  
 
-Published on September 3rd, 2020 (English version).
+Published originaly on September 3rd, 2020 (English version).
 
 Run in R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 
@@ -17,34 +17,43 @@ Disclaimer: You may use this script freely for commercial or non-commercial purp
 
 See further info in the respective sections.
 
-1. PosteriorProb.R -> script for calculating interaction probabilities.
-2. RestNullModel.R -> script for generating randomized matrices based on the restricted null model. 
-3. CompoundTopologyTest.R -> Script with the steps required to test for a compound topology in an interaction matrix.
-4. net1.txt -> example network with a typical compound topology.
+1. CompoundTest.R -> commented script with the steps required to test for a compound topology in an interaction matrix.
+
+2. CompoundTest.pdf -> tutorial in PDF format with the steps required to test for a compound topology in an interaction matrix.
+
+3. CompoundTest.Rmd -> tutorial in RMD format with the steps required to test for a compound topology in an interaction matrix.
+
+4. PosteriorProb.R -> script for calculating interaction probabilities to be used with "RestNullModel.R".
+
+5. RestNullModel.R -> script for generating randomized matrices based on the restricted null model. 
+
+6. net1.txt -> example network with a typical compound topology.
 
 
 ## Functionality and origin
 
 R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an original matrix.
 
-This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro 2019](http://hdl.handle.net/1843/33333), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), and [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, reported in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), and [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135).
+This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro 2019](http://hdl.handle.net/1843/33333), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3), and [Queiroz et al 2020](https://github.com/marmello77/queiroz-et-al-2020). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, reported in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135), and [Pinheiro et al 2016](https://doi.org/10.1016/j.ijpara.2015.10.002).
 
-Our restricted null model is particularly useful for testing for a compound topology, i.e., a modular structure with internally nested modules. It allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
+Our restricted null model was designed for testing for a compound topology, i.e., a modular network structure with internally nested modules. It allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
 
 The function *nest.smdm* for computing NODFsm and NODFdm has already been implemented in the [package bipartite for R](https://cran.r-project.org/web/packages/bipartite/index.html), as well as the functions *sortmatrix* and *plotmatrix* for drawing matrices in a way that helps visualizing a compound topology.
 
 In this repo, we integrated all those functions aiming to make the analysis of compound topologies easier.
 
-In addition to the functions already implemented in the package bipartite for R, the present repo contains 2 new functions and 1 integrative script to be used sequentially:
+In addition to the functions already implemented in the package bipartite for R, this repo contains 2 new functions and 1 integrative script and tutorial to be used sequentially.
 
 
 ## Instructions
 
-1. If you are fully familiar with R and the publications mentioned here, run the commented script "CompoundTest.R";
+1. If you are fully familiar with R and the publications mentioned here, run the functions separately and experiment with them;
 
-2. Alternatively, run the tutorial provided in "CompoundTest.Rmd";
+2. If you would like to see how these functions work together, run the commented script "CompoundTest.R";
 
-3. If you are not so familiar with R, read the tutorial provided in "CompoundTest.pdf".
+3. Alternatively, run the tutorial provided in "CompoundTest.Rmd";
+
+4. If you are not so familiar with R, read the tutorial provided in "CompoundTest.pdf".
 
 
 ## (1) PosteriorProb
