@@ -22,6 +22,7 @@ See further info in the respective sections.
 3. CompoundTopologyTest.R -> Script with the steps required to test for a compound topology in an interaction matrix.
 4. net1.txt -> example network with a typical compound topology.
 
+
 ## Functionality and origin
 
 R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an original matrix.
@@ -35,6 +36,16 @@ The function *nest.smdm* for computing NODFsm and NODFdm has already been implem
 In this repo, we integrated all those functions aiming to make the analysis of compound topologies easier.
 
 In addition to the functions already implemented in the package bipartite for R, the present repo contains 2 new functions and 1 integrative script to be used sequentially:
+
+
+## Instructions
+
+1. If you are fully familiar with R and the publications mentioned here, run the commented script "CompoundTest.R";
+
+2. Alternatively, run the tutorial provided in "CompoundTest.Rmd";
+
+3. If you are not so familiar with R, read the tutorial provided in "CompoundTest.pdf".
+
 
 ## (1) PosteriorProb
 
@@ -63,6 +74,7 @@ Computes pairwise probabilities of interaction among species for a matrix with a
     b. "modules": conditional probabilities differing between areas within and outside modules.
 
     c. "areas": a different set of conditional probabilities for each matrix area. A matrix area is a submatrix M[AB] of M formed by all rows of module A and all columns of module B. If A = B, then M[AB] is a module area, otherwise M[AB] is the area between two modules. Therefore, when Conditional.level =  "areas", each area have their own conditional probabilities of interaction.  
+
 
 ## (2) RestNullModel
 
@@ -105,9 +117,11 @@ The net1.txt file contains an example network with a compound topology, which ca
 
 Follow the instructions given in the script to run a compound topology test.
 
+
 ## Acknowledgements
 
 We thank all colleagues who, together with us, wrote the papers used to lay the ground for this synthesis. Special thanks go to Renata Muylaert, Pavel Dodonov, Alexandre Palaoro, Danilo Muniz, and the StackOverflow community, who helped us improve our scripts and coding skills in general. Last, but no least, we thank Carsten Dormann for incorporating many of our codes into the package bipartite for R.
+
 
 ## Source studies
 
