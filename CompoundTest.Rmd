@@ -253,7 +253,7 @@ p.WNODAdm
 Sort the matrix in a way that facilitates visualizing the compound topology:
 
 ```{r}
-data.comp <- bipartite::sortmatrix(matrix = data, topology = "compound", sort_by = "weights", row_partitions = row.Part, col_partitions = row.Part)
+data.comp <- bipartite::sortmatrix(matrix = data, topology = "compound", sort_by = "weights", row_partitions = row.Part, col_partitions = col.Part)
 ```
 
 Assign colors for the modules:
