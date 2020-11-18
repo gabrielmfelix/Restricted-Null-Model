@@ -169,7 +169,7 @@ p.WNODAdm
 par(mfrow = c(1,1))
 
 #Sort the matrix in a way that facilitates visualizing the compound topology
-data.comp <- bipartite::sortmatrix(matrix = data, topology = "compound", sort_by = "weights", row_partitions = row.Part, col_partitions = row.Part)
+data.comp <- bipartite::sortmatrix(matrix = data, topology = "compound", sort_by = "weights", row_partitions = row.Part, col_partitions = col.Part)
 
 #Assign colors for the modules
 modcol <- rainbow((length(unique(Part))), alpha=1)
