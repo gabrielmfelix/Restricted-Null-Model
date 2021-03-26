@@ -4,7 +4,7 @@
 
 Authors: Gabriel M. Felix, Rafael B. P. Pinheiro, and Marco A. R. Mello.
 
-E-mail: gabriel.felixf@hotmail.com.  
+E-mail: gabrielfelixmf@gmail.com
 
 Published originaly on September 3rd, 2020 (English version).
 
