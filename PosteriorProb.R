@@ -7,15 +7,16 @@
 #### Compute probabilities of interaction in a network with a modular structure.
 
 
-PosteriorProb <- function(M, R.partitions, C.partitions, Prior.Pij, Conditional.level){
+PosteriorProb <- function(M, R.partitions = NULL, C.partitions = NULL, Prior.Pij, Conditional.level){
   
+  if(Conditional.level == "matrix"){R.partitions <- rep(1,nrow(M));C.partitions <- rep(1,ncol(M))}
   # Test of assumptions
   if (!is.matrix(M)){stop("M is not a matrix")}
   if (0 %in% rowSums(M) | 0 %in% colSums(M)) {stop("M is degenerated. There are rows and/or columns without interactions in the matrix. Remove them before proceding")}
   if (!is.numeric(R.partitions) | !is.numeric(C.partitions)) {stop("Partitions are not numeric")}
   if (length(R.partitions) != nrow(M) | length(C.partitions) != ncol(M)) {stop("Partitions and matrix dimensions have different sizes")}
   if (!(Conditional.level %in% c("matrix","modules","areas"))) {stop("Conditional.level should be 'matrix','modules' or 'areas'")}
-  if (Prior.Pij != "degreeprob" & Prior.Pij != "equiprobable" & Prior.Pij != "degreeprob.byarea") {stop("Pij.probs should be 'equiprobable' or 'degreeprob' or 'degreeprob.byarea")}
+  if (!(Prior.Pij %in% c("degreeprob","equiprobable","degreeprob.byarea"))) {stop("Pij.probs should be 'equiprobable' or 'degreeprob' or 'degreeprob.byarea")}
   
   # M dimensions
   r <- dim(M)[1] # Number of rows
