@@ -86,13 +86,9 @@ RestNullModel <- function(M, Pij.Prob, Numbernulls, Print.null = F, allow.degene
           D.int.finalmat.a <- 0 # The number of rows + columns occupied of the null matrix 
           while (D.int.finalmat.a < sum(dim(M.a))) { # While the dimensions of the null matrix was smaller then the original matrix, keep going
             sel <- sample(1:length(M.a), 1, prob = P.a) # Sample an cell of M.a with probability P.a
-            selc <- floor((sel - 1)/(dim(M.a)[1])) + 1 # Recovering column and 
-            selr <- ((sel - 1)%%dim(M.a)[1]) + 1 # row of the cell sampled
-            if (sum(finalmat.a[, selc]) == 0 | sum(finalmat.a[selr,]) == 0) { # Checking if row or column of the sampled cell is empty
-              finalmat.a[sel] <- 1 
-              P.a[sel] <- 0
-            }
-          D.int.finalmat.a <- sum(rowSums(finalmat.a) > 0) + sum(colSums(finalmat.a) > 0) # Setting the new number of dimensions occupied
+            finalmat.a[sel] <- 1 
+            P.a[outer(as.numeric(rowSums(finalmat.a)>0),as.numeric(colSums(finalmat.a)>0))==1] <- 0 #probability of cell with both rows and column non empty are zero
+            D.int.finalmat.a <- sum(rowSums(finalmat.a) > 0) + sum(colSums(finalmat.a) > 0) # Setting the new number of dimensions occupied
           }
           # When the number of occupied dimensions of the null matrix was the same as the original matrix, continue
         }
