@@ -10,7 +10,10 @@
 PosteriorProb <- function(M, R.partitions = NULL, C.partitions = NULL, Prior.Pij, Conditional.level){
   
   if(Conditional.level == "matrix"){R.partitions <- rep(1,nrow(M));C.partitions <- rep(1,ncol(M))}
+
   # Test of assumptions
+  if (conditional.level %in% c("modules","areas") & (is.null(R.partitions) | is.null(C.partitions))){
+    stop("When using conditional.level='modules' or 'areas', R- and C-partitions must be given, based on modularity. See example.")}
   if (!is.matrix(M)){stop("M is not a matrix")}
   if (0 %in% rowSums(M) | 0 %in% colSums(M)) {stop("M is degenerated. There are rows and/or columns without interactions in the matrix. Remove them before proceding")}
   if (!is.numeric(R.partitions) | !is.numeric(C.partitions)) {stop("Partitions are not numeric")}
@@ -53,8 +56,10 @@ PosteriorProb <- function(M, R.partitions = NULL, C.partitions = NULL, Prior.Pij
     for (rr in RMod){
       for (cc in CMod){
         M.rr.cc <- matrix(M[R.partitions == rr,C.partitions == cc], sum(1*(R.partitions == rr)), sum(1*(C.partitions == cc)))
-        Pi.rr.cc <- rowSums(M.rr.cc) / sum(rowSums(M.rr.cc)) 
-        Pj.rr.cc <- colSums(M.rr.cc) / sum(colSums(M.rr.cc))
+        Pi.rr.cc <- rowSums(M.rr.cc) / sum(M.rr.cc)
+        Pi.rr.cc[is.nan(Pi.rr.cc)] <- 0
+        Pj.rr.cc <- colSums(M.rr.cc) / sum(M.rr.cc)
+        Pj.rr.cc[is.nan(Pj.rr.cc)] <- 0
         Prior.Pij.species[R.partitions == rr, C.partitions == cc] <- tcrossprod(Pi.rr.cc, Pj.rr.cc)
       }
     }
@@ -93,7 +98,9 @@ PosteriorProb <- function(M, R.partitions = NULL, C.partitions = NULL, Prior.Pij
   
     # Adjusting the prior Pij prob by conditional probabilities. 
   
-    Post.Pij <- Prior.Pij.species * (Cond.Pij.area / Prior.Pij.area)
+    Adj.Pij <- Cond.Pij.area / Prior.Pij.area
+    Adj.Pij[is.nan(Adj.Pij)] <- 0
+    Post.Pij <- Prior.Pij.species * Adj.Pij 
   }
   
   return(Post.Pij = Post.Pij)
