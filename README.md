@@ -105,7 +105,7 @@ Restricted null model derived from the vaznull model. Uses the pairwise probabil
 
 7. connectance -> logical. If connectance of the null matrices should be either exactly (TRUE) or aproximately (FALSE) the same as the original matrix. Default is TRUE.
 
-8. byarea- > logical. If interactions should be drawn independently for each matrix area (i.e., in each submatrix M[ij] of M formed by all rows of module i and all columns of module j). Default is FALSE
+8. byarea- > logical. If interactions should be drawn independently for each matrix area (i.e., in each submatrix M[AB] of M formed by all rows of module A and all columns of module B). Default is FALSE
 
 9. R.partitions -> vector of integers. Partition of rows. Used only if byarea = TRUE.
 
