@@ -12,7 +12,7 @@ PosteriorProb <- function(M, R.partitions = NULL, C.partitions = NULL, Prior.Pij
   if(Conditional.level == "matrix"){R.partitions <- rep(1,nrow(M));C.partitions <- rep(1,ncol(M))}
 
   # Test of assumptions
-  if (conditional.level %in% c("modules","areas") & (is.null(R.partitions) | is.null(C.partitions))){
+  if (Conditional.level %in% c("modules","areas") & (is.null(R.partitions) | is.null(C.partitions))){
     stop("When using conditional.level='modules' or 'areas', R- and C-partitions must be given, based on modularity. See example.")}
   if (!is.matrix(M)){stop("M is not a matrix")}
   if (0 %in% rowSums(M) | 0 %in% colSums(M)) {stop("M is degenerated. There are rows and/or columns without interactions in the matrix. Remove them before proceding")}
