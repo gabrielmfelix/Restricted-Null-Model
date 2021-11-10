@@ -1,16 +1,18 @@
 # Restricted-Null-Model
 
+Supplement to [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. in press](https://doi.org/10.1111/oik.08462).
+
 [Ecological Synthesis Lab](https://marcomellolab.wordpress.com) (SintECO)
 
-Authors: Gabriel M. Felix, Rafael B. P. Pinheiro, and Marco A. R. Mello.
+Authors: Gabriel Moreira Felix, Rafael Barros Pereira Pinheiro, Robert Poulin, Boris R. Krasnov & Marco Aurelio Ribeiro Mello
 
 E-mail: gabrielfelixmf@gmail.com
 
-Published originaly on September 3rd, 2020 (English version).
+Published originaly on September 3rd, 2020 (English version)
 
 Run in R version 4.0.2 (2020-06-22) -- "Taking Off Again"
 
-Disclaimer: You may use this script freely for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this software, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the software without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this script helps you produce any academic work (paper, book, chapter, dissertation etc.), please acknowledge the authors and cite the source.
+Disclaimer: You may use this script freely for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this software, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the software without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this script helps you produce any academic work (paper, book, chapter, dissertation, thesis, monograph, report, lecture, talk, etc.), please acknowledge the authors and cite this repo and the respective publication.
 
 
 ## List of files
@@ -34,7 +36,7 @@ See further info in the respective sections.
 
 R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an original matrix.
 
-This is the **restricted null model** used in [Felix et al 2017](https://doi.org/10.1101/236687), [Pinheiro 2019](http://hdl.handle.net/1843/33333), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3), and [Queiroz et al 2020](https://github.com/marmello77/queiroz-et-al-2020). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, reported in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135), and [Pinheiro et al 2016](https://doi.org/10.1016/j.ijpara.2015.10.002).
+This is the **restricted null model** first created by [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. in press](https://doi.org/10.1111/oik.08462), and used by [Pinheiro 2019](http://hdl.handle.net/1843/33333), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3), and [Queiroz et al 2020](https://github.com/marmello77/queiroz-et-al-2020). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, elaborated in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135), and [Pinheiro et al 2016](https://doi.org/10.1016/j.ijpara.2015.10.002).
 
 Our restricted null model was designed for testing for a compound topology, i.e., a modular network structure with internally nested modules. It allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
 
@@ -129,12 +131,12 @@ Follow the instructions given in the script to run a compound topology test.
 
 ## Acknowledgements
 
-We thank all colleagues who, together with us, wrote the papers used to lay the ground for this synthesis. Special thanks go to Renata Muylaert, Pavel Dodonov, Alexandre Palaoro, Danilo Muniz, and the StackOverflow community, who helped us improve our scripts and coding skills in general. Last, but no least, we thank Carsten Dormann for incorporating many of our codes into the package bipartite for R.
+We thank all colleagues who, together with us, wrote the papers used to lay the ground for this synthesis. Special thanks go to Renata Muylaert, Pavel Dodonov, Alexandre Palaoro, Danilo Muniz, and the StackOverflow community, who helped us improve our scripts and coding skills in general. Last, but no least, we thank Carsten Dormann for incorporating many of our codes into the [package bipartite for R](https://cran.r-project.org/web/packages/bipartite/index.html). This study was developed as the master’s project of G.M.F. We thank our institutions and colleagues, who helped us in different ways during this project. Adriano Paglia, Cang Hui, Carsten Dormann, Elisabeth Kalko, Erika Braga, Judith Bronstein, Leonardo Rê-Jorge, Paulo Guimarães Jr., Pedro Jordano, Nico Blüthgen, Thomas Lewinsohn, and Tiago Quental helped us with exciting discussions about species interactions, complex networks, and assembly rules. Mario Almeida-Neto made a thorough review of our manuscript, making valuable comments and suggestions that substantially improved the final version. Thomas Lewinsohn discussed archetypical network topologies with us, thus contributing considerably to solve conceptual and methodological issues. The editors and anonymous reviewers made insightful and constructive comments, which helped us see many points from a different perspective. The Graduate School in Ecology of the Federal University of Minas Gerais, Brazil (ECMVS), granted scholarships to G.M.F. and R.B.P.P. M.A.R.M. was funded by the Alexander von Humboldt Foundation (AvH: 3.4-8151/15037 and 3.2-BRA/1134644), Minas Gerais Research Foundation (FAPEMIG: PPM-00324-15), Research Dean of the Federal University of Minas Gerais (UFMG-PRPq: 02/2014), Brazilian Council for Scientific and Technological Development (CNPq: 472372/2013-0, 302700/2016-1, and 304498/2019-0), Research Program of the Biodiversity of the Atlantic Forest (PPBio-MA/CNPq: 457458/2012-7), Research Dean of the University of São Paulo (PRP-USP: 18.1.660.41.7), and São Paulo Research Foundation (FAPESP: 2018/20695-7). This is publication no. XXX of the Mitrani Department of Desert Ecology.
 
 
 ## Source studies
 
-If you want to understand the background of those new functions before using them, read the following studies. The first three paved the ground for the analysis of compound topologies developed later by our lab.
+If you want to understand the background of those new functions before using them, read the following studies (in chronological order). The first three paved the way for the analysis of compound topologies developed later by our lab.
 
 1. Lewinsohn, T. M., P. Inácio Prado, P. Jordano, J. Bascompte, and J. M. Olesen. 2006. Structure in plant-animal interaction assemblages. Oikos 113: 174–184. Available at: http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x.
 
@@ -146,9 +148,15 @@ If you want to understand the background of those new functions before using the
 
 5. Felix, G. M., R. B. P. Pinheiro, R. Poulin, B. R. Krasnov, and M. A. R. Mello. 2017. The compound topology of a continent-wide interaction network explained by an integrative hypothesis of specialization. bioRxiv 236687. Available at: https://doi.org/10.1101/236687.
 
-6. Pinheiro, R. B. P. 2019. As topologias de redes de interações ecológicas e suas origens. PhD Thesis, Federal Univesity of Minas Gerais. URL: http://hdl.handle.net/1843/33333. 
+6. Felix, G. M. 2017. Uma hipótese integradora da especialização ecológica. M.Sc. Thesis, Federal Univesity of Minas Gerais, Brazil. URL: http://hdl.handle.net/1843/36049.
 
-7. Pinheiro, R. B. P., G. M. F. Felix, C. F. Dormann, and M. A. R. Mello. 2019. A new model explaining the origin of different topologies in interaction networks. Ecology 100: e02796. Available at: https://doi.org/10.1002/ecy.2796.
+7. Pinheiro, R. B. P. 2019. As topologias de redes de interações ecológicas e suas origens. Ph.D. Thesis, Federal Univesity of Minas Gerais, Brazil. URL: http://hdl.handle.net/1843/33333. 
 
-8. Mello, M. A. R., G. M. Felix, R. B. P. Pinheiro, R. L. Muylaert, C. Geiselman, S. E. Santana, M. Tschapka, N. Lotfi, F. A. Rodrigues, and R. D. Stevens. 2019. Insights into the assembly rules of a continent-wide multilayer network. Nat. Ecol. Evol. 3: 1525–1532. Available at: https://doi.org/10.1038/s41559-019-1002-3.
+8. Pinheiro, R. B. P., G. M. F. Felix, C. F. Dormann, and M. A. R. Mello. 2019. A new model explaining the origin of different topologies in interaction networks. Ecology 100(9): e02796. Available at: https://doi.org/10.1002/ecy.2796.
 
+9. Mello, M. A. R., G. M. Felix, R. B. P. Pinheiro, R. L. Muylaert, C. Geiselman, S. E. Santana, M. Tschapka, N. Lotfi, F. A. Rodrigues, and R. D. Stevens. 2019. Insights into the assembly rules of a continent-wide multilayer network. Nat. Ecol. Evol. 3: 1525–1532. Available at: https://doi.org/10.1038/s41559-019-1002-3.
+
+10. Felix, G. M., R. B. P. Pinheiro, R. Poulin, B. R. Krasnov, and M. A. R. Mello. 2021. The compound topology of host–parasite networks is explained by the integrative hypothesis of specialization. Oikos, *in press*. Available at: https://doi.org/10.1111/oik.08462.
+
+
+The complete story of the development of the integrative hypothesis of specialization (IHS), as well as all related analyses, including the restricted null model, was told in detail in the [Habilitation Thesis of Prof. Marco Mello](https://marcomellolab.files.wordpress.com/2019/12/mello-2019-tese-livre-docencia.pdf).
