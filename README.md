@@ -1,6 +1,6 @@
 # Restricted-Null-Model
 
-Supplement to [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. in press](https://doi.org/10.1111/oik.08462).
+Supplement to [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. 2021](https://doi.org/10.1111/oik.08462).
 
 [Ecological Synthesis Lab](https://marcomellolab.wordpress.com) (SintECO)
 
@@ -36,7 +36,7 @@ See further info in the respective sections.
 
 R code provided in this repository can be used to generate randomized matrices that conserve both the modular structure and the marginal totals of an original matrix.
 
-This is the **restricted null model** first created by [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. in press](https://doi.org/10.1111/oik.08462), and used by [Pinheiro 2019](http://hdl.handle.net/1843/33333), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3), and [Queiroz et al 2020](https://github.com/marmello77/queiroz-et-al-2020). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, elaborated in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135), and [Pinheiro et al 2016](https://doi.org/10.1016/j.ijpara.2015.10.002).
+This is the **restricted null model** first created by [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. 2021](https://doi.org/10.1111/oik.08462), and used by [Pinheiro 2019](http://hdl.handle.net/1843/33333), [Pinheiro et al 2019](https://doi.org/10.1002/ecy.2796), [Mello et al 2019](https://doi.org/10.1038/s41559-019-1002-3), and [Queiroz et al 2020](https://github.com/marmello77/queiroz-et-al-2020). It was derived from the [vaznull model](https://doi.org/10.1111/j.0030-1299.2007.15828.x). The synthesis presented in these new functions and models, elaborated in a series of studies, was based on the ideas first proposed by [Lewinsohn et al. 2006](http://doi.wiley.com/10.1111/j.0030-1299.2006.14583.x), [Mello et al. 2009](http://doi.wiley.com/10.1111/j.1365-2656.2009.01567.x), [Flores et al. 2013](http://www.nature.com/doifinder/10.1038/ismej.2012.135), and [Pinheiro et al 2016](https://doi.org/10.1016/j.ijpara.2015.10.002).
 
 Our restricted null model was designed for testing for a compound topology, i.e., a modular network structure with internally nested modules. It allows comparing observed and expected values of nestedness between species of the same module (NODFsm), and between species of different modules (NODFdm). 
 
@@ -156,7 +156,7 @@ If you want to understand the background of those new functions before using the
 
 9. Mello, M. A. R., G. M. Felix, R. B. P. Pinheiro, R. L. Muylaert, C. Geiselman, S. E. Santana, M. Tschapka, N. Lotfi, F. A. Rodrigues, and R. D. Stevens. 2019. Insights into the assembly rules of a continent-wide multilayer network. Nat. Ecol. Evol. 3: 1525–1532. Available at: https://doi.org/10.1038/s41559-019-1002-3.
 
-10. Felix, G. M., R. B. P. Pinheiro, R. Poulin, B. R. Krasnov, and M. A. R. Mello. 2021. The compound topology of host–parasite networks is explained by the integrative hypothesis of specialization. Oikos, *in press*. Available at: https://doi.org/10.1111/oik.08462.
+10. Felix, G. M., R. B. P. Pinheiro, R. Poulin, B. R. Krasnov, and M. A. R. Mello. 2021. The compound topology of host–parasite networks is explained by the integrative hypothesis of specialization. Oikos, *early view*. Available at: https://doi.org/10.1111/oik.08462.
 
 
 The complete story of the development of the integrative hypothesis of specialization (IHS), as well as all related analyses, including the restricted null model, was told in detail in the [Habilitation Thesis of Prof. Marco Mello](https://marcomellolab.files.wordpress.com/2019/12/mello-2019-tese-livre-docencia.pdf).
