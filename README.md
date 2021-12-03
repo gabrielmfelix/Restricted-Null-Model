@@ -1,6 +1,6 @@
 # Restricted-Null-Model
 
-Supplement to [Felix et al 2017](https://doi.org/10.1101/236687) and [Felix et al. 2021](https://doi.org/10.1111/oik.08462).
+Supplement to [Felix et al. 2017](https://doi.org/10.1101/236687) and [Felix et al. 2021](https://doi.org/10.1111/oik.08462).
 
 [Ecological Synthesis Lab](https://marcomellolab.wordpress.com) (SintECO)
 
